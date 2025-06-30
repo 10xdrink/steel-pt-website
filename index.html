@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Steel PT | Premium Personal Training</title>
+    <meta name="description" content="Steel PT offers premium personal training with real results. Transform your body and life with our science-backed methods and expert coaches." />
+    <meta name="author" content="Kunal Gir Fitness Solutions" />
+    <link rel="icon" href="favicon.ico" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://steelpt.com/" />
+    <meta property="og:title" content="Steel PT | Premium Personal Training" />
+    <meta property="og:description" content="Transform your body with Steel PT's premium personal training. Real results, not promises." />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://steelpt.com/" />
+    <meta name="twitter:title" content="Steel PT | Premium Personal Training" />
+    <meta name="twitter:description" content="Transform your body with Steel PT's premium personal training. Real results, not promises." />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <!-- Calendly inline widget script -->
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    <script type="text/javascript">
+      window.onload = function() {
+        // Check if Calendly loaded successfully
+        setTimeout(function() {
+          if (typeof Calendly !== 'undefined') {
+            console.log('Calendly loaded successfully');
+            // Force widget refresh if needed
+            if (document.getElementById('calendly-widget')) {
+              const url = document.getElementById('calendly-widget').getAttribute('data-url');
+              if (url && Calendly) {
+                // Reinitialize if needed
+                Calendly.initInlineWidget({
+                  url: url,
+                  parentElement: document.getElementById('calendly-widget'),
+                  prefill: {},
+                  utm: {}
+                });
+              }
+            }
+          } else {
+            console.log('Calendly failed to load');
+            // Show fallback if widget exists
+            const fallback = document.getElementById('calendly-fallback');
+            if (fallback) {
+              fallback.classList.remove('hidden');
+            }
+          }
+        }, 2000); // Check after 2 seconds to give time for loading
+      }
+    </script>
+  </body>
+</html>
